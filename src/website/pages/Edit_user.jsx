@@ -1,32 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function Add_user() {
+function Edit_user() {
 
 
-    const [formvalue,setFormvalue]=useState({
-        name:"",
-        email:"",
-        password:"",
-        mobile:"",
+    useEffect(() => {
+        editHandel();
+    }, []);
+
+    const redirect=useNavigate();
+
+    const {id}=useParams();
+    const editHandel = async () => {
+        const res = await axios.get(`http://localhost:3000/user/${id}`);
+        setFormvalue(res.data)
+    }
+
+    const [formvalue, setFormvalue] = useState({
+        name: "",
+        email: "",
+        password: "",
+        mobile: "",
     });
-    
+
     const changeHandel=(e)=>{
-        setFormvalue({...formvalue,id:new Date().getTime().toString(), status:"Unblock", [e.target.name]:e.target.value})
+        setFormvalue({...formvalue,[e.target.name]:e.target.value})
         console.log(formvalue);
     }
 
     const submitHandel=async(e)=>{
         e.preventDefault();
-        const res=await axios.post(`http://localhost:3000/user`,formvalue);
-        setFormvalue({...formvalue,name:"",email:"",password:"",mobile:""});
-        alert('User Added success');
+        const res=await axios.patch(`http://localhost:3000/user/${formvalue.id}`,formvalue);
+        redirect('/manage_user');
+        alert('User updated success');
         return false;
     }
 
-    
+
     return (
         <div>
             <div>
@@ -34,25 +47,25 @@ function Add_user() {
                 <div className="container mt-5">
                     <div className="row">
                         <div className="col-sm-12">
-                            <h2>Add User</h2>
+                            <h2>Edit User</h2>
                             <form action="" method="post" onSubmit={submitHandel}>
-                                 <div className="mb-3 mt-3">
+                                <div className="mb-3 mt-3">
                                     <label htmlFor="email">Name:</label>
                                     <input type="text" onChange={changeHandel} value={formvalue.name} className="form-control" placeholder="Enter Name" name="name" />
                                 </div>
                                 <div className="mb-3 mt-3">
                                     <label htmlFor="email">Email:</label>
-                                    <input type="email" onChange={changeHandel} value={formvalue.email}  className="form-control"  placeholder="Enter email" name="email" />
+                                    <input type="email" onChange={changeHandel} value={formvalue.email} className="form-control" placeholder="Enter email" name="email" />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="pwd">Password:</label>
-                                    <input type="password" onChange={changeHandel} value={formvalue.password}  className="form-control"  placeholder="Enter password" name="password" />
+                                    <input type="password" onChange={changeHandel} value={formvalue.password} className="form-control" placeholder="Enter password" name="password" />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="pwd">Mobile:</label>
-                                    <input type="number" onChange={changeHandel} value={formvalue.mobile}  className="form-control"  placeholder="Enter Mobile" name="mobile" />
+                                    <input type="number" onChange={changeHandel} value={formvalue.mobile} className="form-control" placeholder="Enter Mobile" name="mobile" />
                                 </div>
-                                
+
                                 <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
 
@@ -66,4 +79,4 @@ function Add_user() {
     )
 }
 
-export default Add_user
+export default Edit_user

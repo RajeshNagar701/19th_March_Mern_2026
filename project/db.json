@@ -1,0 +1,45 @@
+{
+  "user": [
+    {
+      "id": "111456789",
+      "name": "akash",
+      "password": "xyz",
+      "email": "akash@gmail.com",
+      "mobile": "12345678999",
+      "status": "Block"
+    },
+    {
+      "id": "FhfyX8G9b6E",
+      "name": "rajesh anagr",
+      "email": "nagar@gmail.com",
+      "password": "1234",
+      "mobile": "1235487895",
+      "status": "Unblock"
+    },
+    {
+      "id": "PLOs8H-HcXs",
+      "name": "rajesh anagrsds",
+      "email": "nagar@gmail.comdd",
+      "password": "1234",
+      "mobile": "1235487895",
+      "status": "Unblock"
+    }
+  ],
+  "contact": [
+    {
+      "id": "113456789",
+      "name": "nagar",
+      "email": "nagar@gmail.com",
+      "comment": "hello address plz"
+    }
+  ],
+   "admin": [
+    {
+      "id": "111456789",
+      "name": "admin",
+      "password": "1234",
+      "email": "admin@gmail.com",
+      "status":"Unblock"
+    }],
+  "$schema": "./node_modules/json-server/schema.json"
+}
