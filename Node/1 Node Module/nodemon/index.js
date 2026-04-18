@@ -7,7 +7,7 @@ Nodemon Package / Time Saving Module
 All time we have to run node index.js for server run if any changes any file 
 
 Cmd : npm i nodemon -g    globally  in window
-          Sudo npm i nodeon -g      in linux
+      Sudo npm i nodeon -g      in linux
 
 Now Run : nodemon index.js   or nodemon   and save all time working	
 

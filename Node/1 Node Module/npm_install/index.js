@@ -26,4 +26,7 @@ publish them to repositories like Github for access to distributed machines
 
 */
 
-console.log('hello Index');
+const validator=require('validator');
+
+console.log(validator.isURL('https://www.tops-int.c'))
+console.log(validator.isEmail('foo@bar.com'));
