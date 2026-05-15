@@ -8,7 +8,6 @@ app.get('/',(req,res)=>{
 	//resp.sendFile(`${publicpath}/index.html`);  // send file
 })
 
-
 // Get parameter by Routing => pass value by ? =>  req.query
 //http://localhost:3000/argument?name=rajesh
 

@@ -5,7 +5,7 @@ var express=require('express');
 var app=express();
 
 
-const reqFilter =(req,resp,next)=>
+const middleware =(req,resp,next)=>
 {
 	if (!req.query.age) {
         resp.send("Please provide your age")
@@ -21,11 +21,11 @@ const reqFilter =(req,resp,next)=>
 //1) Method 1
 // apply on particular route if true then work not for all routes
 
-app.get('/admin',reqFilter,(_,resp)=>{
-	 resp.send("Particular ROUTE Midleware")
+app.get('/admin',middleware,(_,resp)=>{
+	 resp.send("<h1>Particular ROUTE Midleware</h1>")
 })
 app.get('/website',(_,resp)=>{
-	 resp.send("You are eligible for website About page")
+	 resp.send("<h1>You are eligible for website page</h1>")
 })
 
 
