@@ -1,0 +1,48 @@
+
+<%- include('common/header'); %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2020</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+	  
+	  <div class="container">
+		  <h2>Basic Table</h2>
+		  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+		  <table class="table">
+			<thead>
+			  <tr>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Email</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <% data.map((value)=>{ %>
+			  
+				  <tr>
+					<td><%= value.name %></td>
+					<td><%= value.email %></td>
+					<td><%= value.country %></td>
+				  </tr>
+			 
+			  <%})%>
+			  
+			</tbody>
+		  </table>
+		</div>
+	   	
+      <h2 class="mt-5">TITLE HEADING</h2>
+      <h5>Title description, Sep 2, 2020</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+  </div>
+</div>
+
+<%- include('common/footer'); %>

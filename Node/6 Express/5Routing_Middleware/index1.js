@@ -4,7 +4,6 @@
 var express=require('express');
 var app=express();
 
-
 const middleware =(req,resp,next)=>
 {
 	if (!req.query.age) {
