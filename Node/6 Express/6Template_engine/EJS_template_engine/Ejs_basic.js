@@ -4,10 +4,16 @@
 <%= EJS %>
 Embedded JavaScript templating.
 
+EJS (Embedded JavaScript) is a simple templating language used to 
+generate HTML markup with plain JavaScript. It allows you to embed 
+logic like loops and conditionals directly within your HTML files, 
+making it a popular choice for server-side rendering
+
+
 Fast compilation and rendering
 Simple template tags: <% %> add any js code
 
-print any code & any js code <%= %>       exa : <%= value.name %>
+print any code & any js code <%= %>       exa : <%= object.name %>  => {obj.name}
 
 Custom delimiters (e.g., use [? ?] instead of <% %>)  
 Sub-template includes
@@ -28,22 +34,14 @@ Tags
 %> Plain ending tag
 -%> Trim-mode ('newline slurp') tag, trims following newline
 _%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
+====================================
+
+Install :: npm install ejs/hbs 
 
 
-<ul>
-  <% users.forEach(function(user){ %>
-    <%- include('user/show', {user: user}); %>
-  <% }); %>
-</ul>
-
-
-		npm install ejs/hbs 
-
-
-		Load ejs template in node JS
-
-
+Load ::  ejs template in node JS
 app.set('view engine','ejs') // load ejs on app
+
 
 app.get('/about',(_,resp)=>{
    resp.render(`${publicpath}/about`);  // don't use about.ejs
@@ -59,9 +57,9 @@ Print user
 print loop
 
 <ul>
-<% user.Skills.forEach((item)=>{%>
-<li><%= item %></li>
-<% })%>
+	<% user.Skills.forEach((item)=>{%>
+		<li><%= item %></li>
+	<% })%>
 </ul>
 	  
 
@@ -69,12 +67,14 @@ print loop
 Layouts
 
 <%- include('header'); -%>  // we can also import file by include()
+
 <h1>
   Title
 </h1>
 <p>
   My page
 </p>
+
 <%- include('footer'); -%>
 
 */
