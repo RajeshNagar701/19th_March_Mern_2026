@@ -5,7 +5,8 @@ Express.js view engine for handlebars.js
 $ npm install hbs
 
 
-Using hbs as the default view engine requires just one line of code in your app setup. This will render .hbs files when res.render is called
+Using hbs as the default view engine requires just one line of code in your app setup. 
+This will render .hbs files when res.render is called
 
 app.set('view engine', 'hbs');
 
