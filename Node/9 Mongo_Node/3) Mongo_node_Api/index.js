@@ -120,7 +120,8 @@ app.delete("/deletedata2", async (req, resp) => {
 })
 
 
-http://localhost:5000/deletedata3/6a3908d66229e0ead208abd5
+// http://localhost:5000/deletedata3/6a3908d66229e0ead208abd5
+
 app.delete("/deletedata3/:_id", async (req, resp) => {
     let data = await dbConnect();
 	const myObjectId=new ObjectId(req.params._id)
